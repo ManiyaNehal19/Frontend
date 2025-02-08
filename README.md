@@ -16,3 +16,7 @@ Compile the TypeScript file to JavaScript by running the following in your termi
 tsc filename.ts
 Run the compiled JavaScript file using Node.js:
 node filename.js
+Alternatively, install ts-node using the following command: 
+npm i ts-node -g
+Run the .ts file :
+ts-node filename.ts
