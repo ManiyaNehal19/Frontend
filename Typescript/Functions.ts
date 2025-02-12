@@ -42,3 +42,7 @@ function getLength(value:any):number{
 console.log(getLength([1,2,3,4]));
 
 //Rest Parameter
+function sum(...num1:number[]):number{
+ return num1.reduce((total, num) => total+num, 0)
+}
+console.log(sum(...[1,2,3,4,5,6,7,8,98,4,5,6,7,8,9]));
