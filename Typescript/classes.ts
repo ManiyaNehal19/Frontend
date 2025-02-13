@@ -33,3 +33,53 @@ class Car1{
     }
 }
 //inheritance
+class Animal{
+    constructor(public name: string){}
+    Eats():void{
+        console.log("Animal has eaten");
+    }
+}
+class Dog extends Animal{
+    constructor(name:string){
+        super(name); //directly calling animal class constructor
+    }
+    Eats(): void {
+        console.log("Dog has eaten");
+    }
+}
+const dog1 = new Dog("Pups");
+dog1.Eats();
+
+//Abstract class : classes that cant be initiated
+abstract class Shape{
+    abstract getArea():number //all extended classes must make it
+    printArea():void {
+        console.log(`${this.getArea()}`);
+    }
+}
+class square extends Shape{
+    constructor(private length:number){
+        super()
+    }
+    getArea():number{
+        return this.length*this.length;
+    }
+}
+const sqr1 = new square(56);
+sqr1.printArea()
+//setter and getters
+class circle{
+    private rad:number
+    constructor(radius: number){
+        this.rad = radius;
+    }
+    //these becomes property
+    get radius():number{
+        return this.radius;
+    }
+    //circle.radius = some number.
+    set radius(radius: number){
+        this.rad = radius;
+    }
+
+}
