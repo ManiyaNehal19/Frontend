@@ -20,3 +20,8 @@ Alternatively, install ts-node using the following command:
 npm i ts-node -g
 Run the .ts file :
 ts-node filename.ts
+
+## Angular
+Install Angular by running the following command on your terminal: "npm install -g @angular/cli"
+Afterwards run the following command in your project folder and enter Y for all the questions: "ng new my-app"
+To run the index.html page in src folder run "run serve -o"
