@@ -1,0 +1,48 @@
+
+<!-- 
+//interpolation -->
+<div class="row">
+    <div class="col-3">
+        <p>roles works!</p>
+    </div>
+    <div class="col-3">
+        <p> {{firstName}}</p>
+        <p>{{selected_state}}</p>
+    </div>
+    <div class="col-3">
+    <p>{{currentDate}}</p>
+
+    </div>
+</div>
+<!-- property binding -->
+<div class="row">
+    <div class="col-3">
+        <input type="text" [value]="firstName"   class="form-control">
+    </div>
+    <div class="col-3">
+        <input [type]="inputType">
+    </div>
+    <!-- two way data binding -->
+
+<!-- whatever the input value would be firstName would adopt the same value -->
+    <div class="col-3">
+        <input type="text" [(ngModel)]="firstName">
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]=" selected_state" >
+        <option value="Karachi">Karachi</option> 
+        <option value="Lahore">Lahore</option>
+        <option value="Islamabad">Islamabad</option>
+
+        </select>
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showWelcomeAlert()">Show Alert</button>
+    </div>
+</div>
+
