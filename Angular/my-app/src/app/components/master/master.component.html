@@ -1,0 +1,19 @@
+<div class="row">
+    <!-- dynamic class -->
+    <div class="col-12 text-center">
+        <div class="btn-group">
+            <button type="button" class="btn" [ngClass]="currentComp=='Roles'?'btn-success':'btn-primary'" (click)="changeComp('Roles')">Roles</button>
+        <button type="button" class="btn" [ngClass]="currentComp=='Roles'?'btn-primary':'btn-success'"  (click)="changeComp('Designation')">Designation</button>
+        </div>
+    </div>
+</div>
+<div class="row pt-2">
+    <div class="col-12" *ngIf="currentComp=='Roles'">
+        <app-roles></app-roles>
+
+    </div>
+    <div class="col-12" *ngIf="currentComp=='Designation'">
+<app-designation></app-designation>
+</div>
+    </div>
+
