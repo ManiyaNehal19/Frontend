@@ -1,3 +1,9 @@
+<!-- <p>{{clientobg| json}}</p>
+<ul>
+  @for (item of userList$ |async; track $index) {
+    <li>(item.username)</li>
+  }
+</ul> -->
 <div class="row">
   <div class="col-8">
     <div class="card">
@@ -9,10 +15,33 @@
               <thead>
                 <tr>
                   <th>Sr No</th>
-                  <th>Role Name</th>
+                  <th>Company Name</th>
+                  <th>Person Name</th>
+                  <th>Contact No</th>
+                  <th>City</th>
+                  <th>Action</th>
+                  
+                  
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                @for (item of clienList; track $index) {
+                  <tr>
+                    <td>{{$index+1}}</td>
+                  <td>{{item.companyName}}</td>
+                  <td>{{item.contactPersonName}}</td>
+                  <td>{{item.contactNo}}</td>
+                  <td>{{item.city}}</td>
+                  <td>
+            
+                    <button class="btn btn-danger" (click)="onDelete(item.clientId)">Delete</button>
+
+                  </td>
+                  </tr>
+                }
+                  
+
+              </tbody>
             </table>
           </div>
         </div>
@@ -25,41 +54,49 @@
       <div class="card-body">
         <div class="row">
           <div class="col-6">
-            <label for="">contact Person Name</label>
-            <input type="text" class="form-control" />
+            <label for="">Person Name</label>
+            <input type="text" #personName="ngModel" required [(ngModel)]="clientobg.contactPersonName" class="form-control" />
+           
+            <div class="text-danger">
+              @if (personName?.errors?.['required']) {
+                <span>This is required Message
+                </span>
+              }
+              
+            </div>
           </div>
           <div class="col-6">
             <label for="">Comany Name</label>
-            <input type="text" class="form-control" />
+            <input type="text" [(ngModel)]="clientobg.companyName" class="form-control" />
           </div>
           <div class="col-6">
             <label for="">Address</label>
-            <textarea class="form-control"></textarea>
+            <textarea [(ngModel)]="clientobg.address" class="form-control"></textarea>
           </div>
           <div class="col-6">
             <label for="">City</label>
-            <input type="text" class="form-control" />
+            <input type="text" [(ngModel)]="clientobg.city" class="form-control" />
           </div>
           <div class="col-6">
             <label for="">PinCode</label>
-            <input type="text" class="form-control" />
+            <input type="text" [(ngModel)]="clientobg.pincode" class="form-control" />
           </div>
           <div class="col-6">
             <label for="">State</label>
-            <input type="text" class="form-control" />
+            <input type="text" [(ngModel)]="clientobg.state" class="form-control" />
           </div>
           <div class="col-6">
             <label for="">Employee Strength</label>
-            <input type="text" class="form-control" />
+            <input type="text" [(ngModel)]="clientobg.EmployeeStrength" class="form-control" />
           </div><div class="col-6">
             <label for="">GST No</label>
-            <input type="text" class="form-control" />
+            <input type="text" [(ngModel)]="clientobg.gstNo" class="form-control" />
           </div><div class="col-6">
             <label for="">Contact No</label>
-            <input type="text" class="form-control" />
+            <input type="text" [(ngModel)]="clientobg.contactNo" class="form-control" />
           </div><div class="col-6">
             <label for="">Reg No</label>
-            <input type="text" class="form-control" />
+            <input type="text" [(ngModel)]="clientobg.regNo" class="form-control" />
           </div>
         </div>
         <div class="row">
@@ -67,7 +104,7 @@
                 <button class="btn btn-secondary">Reset</button>
             </div>
             <div class="col-6">
-                <button class="btn btn-success">Save Client</button>
+                <button class="btn btn-success" (click)="onSaveClient()">Save Client</button>
             </div>
         </div>
       </div>
