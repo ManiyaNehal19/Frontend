@@ -8,11 +8,12 @@ import { AsyncPipe, DatePipe, JsonPipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-client',
-  imports: [FormsModule],
+  imports: [FormsModule, UpperCasePipe, DatePipe],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
 export class ClientComponent implements OnInit{
+  currentDate:Date = new Date();
 clientobg: Client = new Client();
 clienList:Client[] = [];
 clientService = inject(ClientService);
@@ -26,6 +27,7 @@ loadClient(){
     this.clienList = res.data;
   })
 }
+
 onSaveClient(){
 debugger;
 this.clientService.AddUpdate(this.clientobg).subscribe((res:APIResonseModel)=>{

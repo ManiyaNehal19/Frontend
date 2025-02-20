@@ -1,0 +1,5 @@
+<!-- signals are used to notify consumers when a valueis changed, they r either writable or read only -->
+<!-- they are accesed by a getter function that allows angular to trck it -->
+<p>{{ count() }}</p>  <!-- Correct way to access signal value -->
+<button (click)="setCount()">Set Count to 3</button>
+<p>{{ count() }}</p>
